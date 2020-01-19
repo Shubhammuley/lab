@@ -1,0 +1,18 @@
+ 1.)   pwd ; ls -al
+ 2.)   mkdir intern-2020 rapidos-2020
+ 3.)   touch intern-2020/dev.txt intern-2020/helloworld.txt
+ 4.)   cat > dev.txt
+       echo "hello " | cat > helloworld.txt
+ 5.)   cp dev.txt helloworld.txt rapido-2020
+ 6.)   cd rapisopd-2020
+       mv dev.txt new.txt ; mv helloworld.txt new1.txt
+ 7.)   chmod  o=r dev.txt   ; chmod o=rwx,g=rw new1.txt
+ 8.)   tar -cvf archive.tar rapidop-2020 ; mv archive.tar intern-2020
+ 9.)   cp archive.tar new.tar ; rm -r archi.tar
+10.)   find dev.txt
+11.)   top
+12.)   df
+13.)   ps -a | ps -p pid
+14.)   sudo apt-get install mattermost-desktop.deb
+15.)   ifconfig
+
