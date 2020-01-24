@@ -1,0 +1,196 @@
+#div1
+{
+  margin-top:  10px;
+  margin-bottom: 10px;
+  margin-left:0;
+  margin-right: 0;
+
+}
+#content
+{
+  color: grey;
+  line-height: 2.0;
+  font-size: 19px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+
+}
+#head
+{
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 28px;
+
+}
+.icon1
+{
+  padding-left: 30%;
+  padding-top:10%;
+  margin-top: 10%;
+}
+#lab1
+{
+  color:black;
+   font: italic bold 12px/30px Georgia, serif;
+   font-size: 20px;
+ }
+#contain
+{
+  background-color: white;
+  margin-top: 9%;
+}
+
+.heading4
+{
+  padding-top: 5%;
+  padding-left: 5%;
+  padding-right: 5%
+  text-align:center;
+}
+
+ul a:hover
+{
+  align-items: right;
+  background-color: aqua;
+  text-decoration-color: white;
+  padding-left: 100px;
+
+}
+
+.hov a:hover
+{
+  background-color: aqua;
+
+}
+h2.styl
+{
+   font-family: Arial, Helvetica, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 33%;
+  padding: 10px;
+  padding-top: 5%;
+
+  background-color:#eee;
+}
+.column1 {
+  flex: 33%;
+  padding: 10px;
+  padding-left: 5%;
+  padding-top: 5%;
+
+  background-color: #eee;
+}
+
+.column1 img:hover
+{
+  opacity:0.5;
+}
+.sam
+{
+  text-align: center;
+  padding-top: 5%;
+}
+
+.back
+{
+  margin-top: 5%;
+  background-image:url('../image/bg1.jpg');
+}
+
+.heads
+{
+  padding-top: 8%;
+  color: white;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+   line-height: 2.0;
+
+}
+.form_input input::placeholder
+{
+  color:white;
+}
+.form_input input
+{
+  color:white;
+}
+.form_input textarea
+{
+ color: white;
+}
+.form_input textarea::placeholder
+{
+  color:white;
+}
+
+.textboxid
+{  margin-left: 25%;
+    width: 500px;
+    height:60px;
+    font-size:14pt;
+
+}
+
+#main-footer{
+	background: #eee;
+	color:#aaa;
+	padding:20px;
+  padding-left: 10%;
+	margin-top:40px;
+
+ }
+
+.button_style button
+{
+  border:solid;
+  margin-left: 64%;
+}
+/*
+ .fa {
+   padding: 20px;
+   font-size: 30px;
+   width: 30px;
+   text-align: center;
+   text-decoration: none;
+   margin: 5px 2px;
+   border-radius: 50%;
+ }
+
+ .fa:hover {
+     opacity: 0.7;
+ }
+
+ .fa-facebook {
+   background: #3B5998;
+   color: white;
+ }
+
+ .fa-twitter {
+   background: #55ACEE;
+   color: white;
+ }
+
+ .fa-google {
+   background: #dd4b39;
+   color: white;
+ }
+
+ .fa-linkedin {
+   background: #007bb5;
+   color: white;
+ }
+
+
+
+.heads p
+{
+    color: #bbb;
+}
+*/
