@@ -48,16 +48,23 @@
 
 ul a:hover
 {
-  align-items: right;
-  background-color: aqua;
+/*  align-items: right;*/
+  background-color: dodgerblue;
   text-decoration-color: white;
-  padding-left: 100px;
-
+/*  padding-left: 100px;*/
+}
+.navbar
+{
+  padding: 0;
+}
+.nav-link
+{
+ margin: 15px;
 }
 
 .hov a:hover
 {
-  background-color: aqua;
+  background-color:  dodgerblue;
 
 }
 h2.styl
@@ -80,19 +87,57 @@ h2.styl
 
   background-color:#eee;
 }
-.column1 {
+.img-pads{
   flex: 33%;
   padding: 10px;
-  padding-left: 5%;
   padding-top: 5%;
+  position: relative;
+  background-color: #eee;
 
+}
+.column1 {
+
+  padding: 10px;
+  padding-left: 5%;
+  
+  padding-bottom: 5%;
+  padding-right:5%;
+ position: relative;
   background-color: #eee;
 }
 
-.column1 img:hover
+
+.overlay
 {
-  opacity:0.5;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  color: #FFF;
 }
+
+.padding_img
+{
+    padding-top: 30%;
+    padding-left: 40%;
+}
+.column1:hover .overlay
+{
+  opacity: 1;
+  display: inline-flex;
+
+}
+
+.column1:hover img
+{
+  opacity: 0.5;
+
+
+}
+
 .sam
 {
   text-align: center;
@@ -102,6 +147,7 @@ h2.styl
 .back
 {
   margin-top: 5%;
+  padding-bottom:5%;
   background-image:url('../image/bg1.jpg');
 }
 
@@ -131,9 +177,8 @@ h2.styl
 }
 
 .textboxid
-{  margin-left: 25%;
-    width: 500px;
-    height:60px;
+{
+
     font-size:14pt;
 
 }
@@ -142,16 +187,28 @@ h2.styl
 	background: #eee;
 	color:#aaa;
 	padding:20px;
-  padding-left: 10%;
-	margin-top:40px;
+  padding-left:10%;
+  padding-right:10%;
 
  }
-
+/*
+ #main-footer a
+ {
+   padding:10%;
+ }
+*/
 .button_style button
 {
   border:solid;
-  margin-left: 64%;
+  float: right;
+  border-radius: 5px;
+  color:white;
+  margin-right:0;
+
 }
+
+
+
 /*
  .fa {
    padding: 20px;
