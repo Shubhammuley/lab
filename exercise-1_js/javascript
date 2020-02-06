@@ -1,0 +1,1104 @@
+let user = {
+  name: "John",
+  money: 1000,
+
+ [Symbol.toPrimitive](hint) {
+    console.log(`hint: ${hint}`);
+    return hint == "string" ? `{name: "${this.name}"}` : this.money;
+  }
+};
+
+console.log(user);// [object ,Object]
+console.log(+user);
+console.log(user + 500);
+
+-----------------------------------------------------------------------------------------------------------------------
+
+let user = {
+  name: "John",
+  money: 1000,
+
+
+  toString() {
+    return `{name: "${this.name}"}`;
+  },
+
+
+  valueOf() {
+    return this.money;
+  }
+
+};
+
+console.log(user);
+alert(user);
+console.log(+user);
+console.log(user + 500);
+
+-----------------------------------------------------------------------------------------------------------------------
+------------------------------------------array -----------------------------------------------------------------
+let sam = [ 'appple', 'mango ' , 'banana'];
+console.log(sam);
+sam [2] = 'orange';
+console.log(sam);
+let arr = [ 'Apple', { name: 'John' }, true, function() { alert('hello'); } ];
+console.log(arr);
+console.log(sam);
+arr[3]();
+
+console.log(sam.shift());
+console.log(sam.pop());
+console.log(sam);
+sam.unshift("pear" ,"peach")
+sam.push("lemom" , 'pineapple')
+console.log(sam);
+
+console.log(sam.length);
+
+sam.length=3;
+console.log(sam);
+
+sam.length=5;
+console.log(sam);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------2D array itreation ---------------------------------------
+let matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+
+for ( let i = 0 ; i < 3 ; i++ ){
+  for (let j = 0 ; j < 3 ; j++){
+    console.log(matrix[i][j]);
+    document.write( `\n ${matrix[i][j]}`)
+  }
+  document.write("<br>  ")
+}
+------------------------------------------------------------------------------------------------------------------------------------
+function sumInput () {
+  let n = [];
+
+  while (true) {
+    let val = prompt("enter number")
+
+    if( val === "" || val === null || !isFinite(val)) break;
+
+    n.push(+val)
+    console.log(+val);
+  }
+  let sum=0;
+
+  for ( let i in n ) {
+    sum += i ;
+
+  }
+  return sum;
+}
+
+
+
+console.log(sumInput());
+-------------------------------------------------------------------
+let arr = ["I", "study", "JavaScript", "right", "now"];
+let a=[5,4,3,2,1]
+console.log(arr.splice(1,2, "let","get",'set'));
+
+console.log(arr);
+console.log(arr.length);
+arr.splice(0,0,'ss','bb');
+console.log(arr);
+console.log(arr.slice(1,6));
+
+console.log(arr.concat(["ass",2,3]));
+console.log(arr.concat(1,2,3));
+console.log(arr.concat(a,555));
+console.log(arr);
+let b =arr.concat(a,555)
+console.log(b);
+;
+--------------------------------------------------------------------------------------itreation in array forEach-------------------
+let arr = ["I", "study", "JavaScript", "right", "now"];
+arr.forEach((item , index , array) => {
+  console.log(`${item} is at index ${index} in ${array}`);
+});
+------------------------------------------------------------------
+let arr = ["I", "study", "JavaScript", "right", "now"];
+
+arr.forEach((item, i) => {
+  console.log(item);
+});
+
+------------------------------------------------------------------------------------------------------------------------------------
+const todos= [
+{
+  id:10,
+  task:"something 1",
+  time:"12"
+}
+,{
+  id:20,
+  task:"somthing 2",
+  time:"1"
+}
+]
+
+todos.forEach(function(todo) {
+
+  console.log(todo.task);
+  console.log(todo.id);
+  console.log(todo.time);
+
+
+});
+
+------------------------------------------------------------------------------------------------------------------------------------
+let arr = ["I", "study", "JavaScript", "right", "now",NaN,null];
+
+console.log(arr.indexOf("now"));
+console.log(arr.lastIndexOf("now"));
+console.log(arr.includes(null));
+console.log(arr.includes(NaN));
+console.log(arr.indexOf(null));
+
+-----------------------------------------------------------------------------------------array.find---------------------------------
+let users = [
+  {id: 1, name: "John"},
+  {id: 2, name: "Pete"},
+  {id: 3, name: "Mary"}
+];
+console.log(users.find(item => item.name="Pete"));
+let result = users.find(item => item.id=3)
+console.log(result);
+console.log(result.name);
+
+-------------------------array.find--------------------------------------------------------array.findIndex--------------------------
+let arr = ["I", "study", "JavaScript", "right", "now",NaN,null];
+const arr1 = [5, 12, 8, 130, 44];
+
+let tofind= (item) => item == "JavaScript"
+let tofind1= (item1) => item1 === 8
+
+console.log(arr.find(tofind));
+console.log(arr1.find(tofind1));
+console.log(arr.findIndex(tofind));
+console.log(arr1.findIndex(tofind1));
+
+------------------------------------------------------------------------------------------array.filter------------------------------
+let users = [
+  {id: 1, name: "John"},
+  {id: 2, name: "Pete"},
+  {id: 3, name: "Mary"}
+];
+
+
+let someUsers = users.filter(item => item.id >2);
+console.log(someUsers[0]);
+console.log(someUsers);
+console.log(typeof users);
+console.log(typeof someUsers);
+
+
+------------------------------------------------------------------------------------------array.map------------------------------
+let arr = ["I", "study", "JavaScript", "right", "now"];
+
+console.log(arr.map(item => item.length));
+-----------------------------------------------------------------------------------------------------------------------------------
+
+const todos= [
+{
+  id:10,
+  task:"something 1",
+  time:"12"
+}
+,{
+  id:20,
+  task:"somthing 2",
+  time:"1"
+}
+,{
+  id:30,
+  task:"somthing 3",
+  time:"1"
+}
+]
+const newarray= todos.map(function(todo)
+{
+  return todo.task;
+})
+console.log(newarray);
+__________________________________________________________________--------------------------array.sort(fn)--------------------------
+function compare(a , b){
+  if ( a > b)return 1;
+  if (a == b)return 0;
+  if (a < b)return -1;
+
+}
+
+let arr=[1,11,5,2,3,12,'A','z',"a","Z",'d']
+
+console.log(arr.sort());
+console.log(arr);
+
+[1, -2, 15, 2, 0, 8].sort(function(a, b) {
+  console.log(( a + " <> " + b ));
+});
+------------------------------------------------------------------------------------------------------------------------------------
+let arr = [ 1, 2, 1,5,4,6,78,87 ];
+
+console.log(arr.sort((a ,b ) => a - b));
+
+console.log(arr); // 1, 2, 15
+-----------------------------------------------------------------------------------------str.localeCompare--------------------------
+let countries = ['Österreich', 'Andorra', 'Vietnam'];
+
+console.log(countries.sort( (a, b) => a > b ? 1 : -1));
+
+console.log(countries.sort( (a, b) => a.localeCompare(b) ));
+
+------------------------------------------------------------------------------------------array.reverse()---------------------------
+
+
+
+-------------------------------------------------------------------------------------------Split -----------------------------------
+let names = 'Bilbo, Gandalf, Nazgul , abc , asb dfb ,vdf, , ffgd';
+
+let arr = names.split(', ');
+console.log(names);
+console.log(typeof names);
+console.log(typeof arr);
+console.log(arr);
+console.log(names.split("," ,5));
+for (let name of arr) {
+  console.log( `name is ${name}`);
+};
+
+let str="SPLIT";
+
+console.log(str.split(''));
+
+----------------------------------------------------------------------------------------- array.reduce() ---------------------------
+
+let arr = [1, 2, 3, 4, 5];
+
+let result = arr.reduce((sum, current, index) => sum + current, 0);
+
+console.log(result);
+------------------------------------------------------------------------------------------Array.isArray()--------------------------
+
+let arr = [1, 2, 3, 4, 5];
+let arr1 = [{id:1,name:'abc'} ,{id:2 , nmae:'dfj'}];
+let arr2 = {0:10,1:21};
+let a=544;
+
+console.log( Array.isArray(arr));
+console.log( Array.isArray(arr1));
+console.log( Array.isArray(arr2));
+console.log( Array.isArray(a));
+
+----------------------------------------------------------------
+------------------------------MAP - SET--------------------------
+let map = new Map();
+
+map.set('1',"string");
+map.set(1,544)
+map.set(true,"bol")
+
+console.log(map);
+
+console.log(map.get("1"));
+console.log(map.get(1));
+
+console.log(map.get(true));
+console.log(map.size);
+console.log(map.has("1"));
+console.log(map.has(555));
+console.log(map.has(true));
+
+console.log(map.keys());
+console.log(map.values());
+console.log(map.entries());
+------------------------------------------------------------------------------------------------------------------------------------
+let map = new Map([
+  ['cucumber', 500],
+  ['tomatoes', 350],
+  ['onion',    50]
+]);
+
+
+for ( let key of map.keys() ){
+  console.log(key);
+}
+
+for (let val of map.values()){
+  console.log(val);
+}
+
+for (let entries of map ){
+  console.log(entries);
+}
+
+---------------------Object.fromEntries-------------------------------------------------Object.entries------------------------------
+let obj = {
+  id: 30,
+  name:"fdf"
+};
+console.log(obj);
+console.log(Object.entries(obj));
+let map = new Map(Object.entries(obj));
+
+console.log(map.get("id"));
+console.log(map.get("name"));
+
+let prices = Object.fromEntries([
+  ['banana', 1],
+  ['orange', 2],
+  ['meat', 4]
+]);
+
+console.log(prices);
+
+------------------------------------------------------------------------------------------------------------------------------------
+let map = new Map();
+
+map.set(1,"1");
+map.set(2,"2");
+map.set(3,"3");
+map.set(4,"4");
+
+console.log(map.entries());
+console.log(Object.fromEntries(map.entries()));
+let obj = Object.fromEntries(map.entries());
+console.log(obj[2]);
+
+---------------------------------------------------------------------------------------------Set----------------------------------
+
+
+let set = new Set();
+
+let a = { id: 'a' };
+let b = { id: 'b' };
+let c = { id: 'c' };
+let d = { id: 'a' };
+
+console.log(set.add(a));
+console.log(set.size);
+console.log(set.add(b));
+console.log(set.size);
+console.log(set.add(a));
+console.log(set.size);
+console.log(set.add(c));
+console.log(set.size);
+console.log(set.add(d));
+console.log(set.size);
+
+for ( let ids of set ){
+  console.log(ids.id);
+}
+
+
+--------------------------------------------------------------------------------------iteration over set ---------------------------
+
+let set = new Set(["a", 'b', 'c', 'd', 1, 2 ]);
+
+for ( let val of set ) console.log(val);
+
+
+set.forEach((value , val , set) => {
+   console.log(value);
+});
+
+---------------------------------------------------------------------------------------------WeakMap--------------------------------
+
+let john = { name: "John" };
+let john1 = { name: "John" };
+
+let map = new WeakMap();
+let map1 = new Map()
+
+map.set(john," abc ");
+map1.set(john1," dfsf ");
+
+console.log(map.get(john));
+console.log(map1.get(john1));
+console.log(map.has(john));
+
+------------------------------------------------------------------
+
+let visitsCountMap = new Map();
+
+function countUser(user) {
+  let count = visitsCountMap.get(user) || 0;
+  visitsCountMap.set(user, count + 1);
+}
+
+let john = { name: "John" };
+let a = { name: "John" };
+countUser(john);
+countUser(john);
+countUser(a);
+countUser(a);
+countUser(john);
+console.log(visitsCountMap);
+john = null;
+console.log(visitsCountMap);
+
+-----------------------------------------------------------------------------------------destructuring------------------------------
+
+
+
+let arr = ['shubham', 'muley'];
+
+// let [firstname ,lastname] = arr;
+//let [firstname, lastname] = "Ilya Kantor".split(' ');
+let [firstName, , title] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+
+let firstname = arr[0];
+let lastname = arr[1]
+
+console.log(title);
+console.log(firstname);
+console.log(lastname);
+
+let [a, b, c] = "abc"; // ["a", "b", "c"]
+console.log(a);
+let [one, two, three] = new Set([1, 2, 3]);
+console.log(one);
+
+let user = {};
+[user.name, user.surname] = "Ilya Kantor".split(' ');
+console.log(user);
+
+let [name1, name2, ...rest] = ['shubh', 'mul', 1, 2, 3, 4]
+
+console.log(name1);
+console.log(name2);
+console.log(rest);
+
+let options = {
+  title1: "Menu",
+  width: 100,
+  height: 200,
+  name: "abc"
+};
+
+
+// let { name , title1  , width : wide, height:h , default :def = true} = options;
+let { name, ...rest1 } = options;
+
+//console.log(title1);
+//console.log(wide);
+//console.log(h);
+console.log(name);
+//console.log(def);
+
+console.log(rest1);
+
+------------------------------------------------------------------
+let arr = [ 'a', 'b', 'c', [1, 2, 3, 4]]
+
+let [name1, name2, name3, [one , two ,three, four]] = arr ;
+
+console.log( name1 );
+console.log( name2 );
+console.log( name3 );
+console.log(one);
+console.log(two);
+console.log(three);
+console.log(four);
+
+let options = {
+  size: {
+    width: 100,
+    height: 200
+  },
+  items: ["Cake", "Donut"],
+  extra: true
+};
+
+//let { size :{ width , height}, items:[item1,item2] ,extra} = options ;
+let {extra , ...rest } = options
+//console.log(width);
+//console.log(height);
+console.log( extra);
+//console.log(item2);
+//console.log(item1);
+console.log(rest);
+
+----------------------------------------------------------------------------------------------DATE TIME ----------------------------
+
+
+
+let now = new Date();
+
+console.log(now);
+
+console.log(now.getYear());
+console.log(now.getFullYear());
+console.log(now.getDate());
+console.log(now.getMonth());
+console.log(now.getDay());
+console.log(now.getUTCHours());
+console.log(now.getTime());
+console.log(+now);
+
+let date = new Date(24 * 3600 * 1000);
+console.log(date);
+
+let date1 = new Date("2017-01-26")
+
+console.log( date1);
+
+let date2 = new Date(2019,10,14,16,20,12,00)
+
+console.log( date2);
+
+----------------------------------------------------------------------------------------------JSON.stringify-----------------------
+
+let student = {
+  name: 'John',
+  age: 30,
+  isAdmin: false,
+  courses: ['html', 'css', 'js'],
+  wife: null
+};
+
+let arr = ["dsfds" , 'abc' , 2 ,5]
+
+console.log(typeof arr); // Object
+let jarr = JSON.stringify(arr); // convert obj to str json format
+
+console.log(typeof jarr); // string
+console.log(jarr);
+
+let json = JSON.stringify(student)
+
+console.log(typeof json);
+console.log(json);
+
+console.log(JSON.stringify(1));
+console.log(JSON.stringify(true));
+console.log(JSON.stringify([1,2,3]));
+console.log(JSON.stringify(null));
+
+------------------------------------------------------------------
+
+let user = {
+  sayHi() {
+    alert("Hello");
+  },
+  [Symbol("id")]: 123,
+  something: undefined
+};
+
+console.log(JSON.stringify(user));
+
+let meetup = {
+  title: "Conference",
+  room: {
+    number: 23,
+    participants: ["john", "ann"]
+  }
+
+};
+
+  console.log(JSON.stringify(meetup));
+
+  let room = {
+    number: 23
+  };
+
+  let meetup1 = {
+    title: "Conference",
+    participants: ["john", "ann"]
+  };
+
+  meetup1.place = room;
+  room.occupiedBy = meetup1;
+
+
+
+  console.log(meetup1);
+  console.log(room);
+  console.log(  JSON.stringify(meetup1, ['title' , 'participants' , 'place', 'name', 'number']));
+
+------------------------------------------------------------------
+
+
+
+let user = {
+  name: "John",
+  age: 25,
+  roles: {
+    isAdmin: false,
+    isEditor: true
+  }
+};
+
+let userData = '{ "name": "John", "age": 35, "isAdmin": false, "friends": [0,1,2,3] }';
+
+//console.log(JSON.stringify(user, null, 1));
+
+//console.log(JSON.parse(JSON.stringify(user)));
+
+let use = JSON.parse(userData);
+
+console.log(use.name);
+console.log(use.friends[2]);
+
+--------------------------------------------------------------------------------------------Recursion-------------------------------
+
+function pow( a , n ) {
+  if (n == 1) {
+    return a;
+  }else {
+    return a * pow( a , n-1)
+  }
+
+}
+
+console.log(pow(2,3));
+
+------------------------------------------------------------------
+
+function pow(x, n) {
+  return (n == 1) ? x : (x * pow(x, n - 1));
+}
+------------------------------------------------------------------
+
+let company = {
+  sales: [{name: 'John', salary: 1000}, {name: 'Alice', salary: 600 }],
+  development: {
+    sites: [{name: 'Peter', salary: 2000}, {name: 'Alex', salary: 1800 }],
+    internals: [{name: 'Jack', salary: 1300}],
+    loads: { salary:2000}
+
+  }
+};
+
+
+function sumSalaries(department) {
+  if (Array.isArray(department)) {
+    return department.reduce((prev, current) => prev + current.salary, 0);
+  } else {
+        let sum = 0;
+    for (let subdep of Object.values(department)) {
+      sum += sumSalaries(subdep);
+    }
+    return sum;
+  }
+}
+
+console.log(sumSalaries(company));
+--------------------------------------------------------------------------------------linked-list-----------------------------------
+
+let list = { value: 1 };
+list.next = { value: 2 };
+list.next.next = { value: 3 };
+list.next.next.next = { value: 4 };
+document.write(JSON.stringify(list));
+document.write("<br>")
+
+// prepend the new value to the list
+list = { value: "new item", next: list };
+document.write(JSON.stringify(list));
+list.next = list.next.next;
+
+document.write("<br>")
+document.write(JSON.stringify(list))
+
+console.log(list);
+
+--------------------------------------------------------------------------------SUM TO N -------------------------------------------
+function sumTo(n) {
+  return ( n == 1 ) ? n : n + sumTo( n-1 )
+
+}
+
+console.log(sumTo(100));
+console.log(sumTo(4));
+
+--------------------------------------------------------------------------------------------factorial of n -------------------------
+
+function fact( n ) {
+  return ( n == 1 ) ? n : n * fact( n-1 )
+
+}
+
+console.log(fact(5));
+
+---------------------rest- parameter--------------------------------------------------------Arguments-------------------------------
+
+function len(){
+  console.log(arguments.length);
+  for ( let i = 0 ; i < arguments.length ; i++){
+     console.log(arguments[i]);
+  }
+
+}
+
+len(1,2,3,4,5,6,7,8,9)
+console.log();
+
+---------------------------------------------------------------------------------------------Spread syntax -------------------------
+
+let arr  = [3,2,6];
+let arr1 = [5,6,8,7];
+console.log(typeof arr);
+/*console.log(Math.max(arr[0] , arr[1]));
+console.log( Math.max(...arr));
+*/
+let merge = [ 0 , ...arr  ,...arr1, 9]
+console.log(merge);
+
+let str ="shubham";
+let a = [ ...str]
+console.log(a);
+console.log(...str);
+console.log([...str]);
+console.log(Array.from(str));
+
+------------------------------------------------------------------
+function counter(){
+  let count = 0 ;
+
+  return function () {
+    return count++;
+
+  }
+}
+
+let count = counter()
+console.log(count);
+console.log(count()); // 0
+console.log(count()); // 1
+console.log(count()); // 2
+
+console.log(counter()()); // 0
+console.log(counter()()); // 0
+
+------------------------------------------------------------------
+-----------------------password validater-------------------------
+
+/*function  isValidPassword( username , password ) {
+
+  if( password.length < 8){
+    return false;
+  }
+  if (password.indexOf(' ') != -1 ) {
+    return false;
+  }
+
+  if ( password.indexOf(username) != -1){
+    return false;
+  }
+  return true;
+}
+
+*/
+
+function  isValidPassword( username , password ) {
+
+  if ( password.length < 8 ||
+       password.indexOf(' ') != -1 ||
+       password.indexOf(username) != -1) {
+         return false;
+  }
+  return true;
+}
+------------------------------------------------------------------
+---------------------------PANGRAM--------------------------------
+/*
+function pangram ( sent ) {
+
+  let lower = sent.toLowerCase();
+
+  for( char of 'abcdefghijklmnopqrstuvwxyz'){
+    if(lower.indexOf(char) == -1){
+      return false;
+    }
+  }
+  return true;
+}
+
+
+*/
+
+function pangram ( sent ) {
+
+    let lower = sent.toLowerCase();
+
+    for( char of 'abcdefghijklmnopqrstuvwxyz'){
+
+      if(!lower.includes(char)){
+        return false;
+      }
+    }
+    return true;
+
+}
+
+console.log(pangram("Jackdaws love my big sphinx of quartz"));
+
+------------------------------------------------------------------
+------------pick random card from a deck ------------------------
+
+
+function pickCard( arr ){
+  let index= Math.floor(Math.random() * arr.length);
+  return index;
+}
+
+
+function getCard(){
+
+  let card = ['A','1','2','3','4','5','6','7','8','9','10','J','Q','K'];
+ let suit = ['clubs', 'spades', 'hearts', 'diamonds' ]
+
+  console.log(card[pickCard(card)]);
+  console.log(suit[pickCard(suit)]);
+
+  document.write(`<h1> card is ${card[pickCard(card)]}  of ${suit[pickCard(suit)]} </h1>`)
+
+}
+
+getCard();
+
+
+------------------------------------------------------------------
+                   Scheduling
+
+
+let timerId = setInterval(() => console.log("print"), 1000);
+setTimeout(() => clearTimeout(timerId),10000)
+
+---------------------------------------------------------------------------------nested setTimeout----------------------------------
+
+let timerId = setTimeout(function tick() {
+  console.log('tick');
+  timerId = setTimeout(tick, 2000); // (*)
+}, 2000);
+
+----------------------------------------------------------------------------------------------------Caching-------------------------
+function slow(x) {
+   console.log("Called " + x);
+   return x;
+
+}
+
+function decorater(func){
+  let cache = new Map();
+
+  return function (x) {
+    if(cache.has(x)){
+      console.log( 'again ' + cache.get(x));
+      return cache.get(x);
+    }
+    let result = func(x);
+
+    cache.set(x,result)
+
+    return result;
+  }
+}
+
+ slow1 = decorater(slow);
+ slow1(1)
+ slow1(1)
+ slow1(2)
+ slow1(3)
+ slow1(2)
+ slow1(3)
+------------------------------------------------------------------
+-------------------------function binding -----------------------
+let user ={
+ name:"shubham",
+ sayHi(){
+   console.log(`hello ${this.name}`);
+
+ },
+ getName(){
+   console.log(`name ${this.name}`);
+ },
+ setName(){
+
+ }
+}
+//let f = user.sayHi;
+let f = user.sayHi.bind(user);
+
+for(let key in user){
+  if (typeof user[key] == 'function'){
+    user[key] = user[key].bind(user)
+
+  }
+}
+//let l = user['getName']
+setTimeout(f,1000)
+setTimeout(user.getName , 1000)
+//setTimeout( user.sayHi(), 1000)
+/*setTimeout( function (){
+  user.sayHi();
+},1000)
+*/
+console.log("hello firat");
+
+
+/*
+let user = { name : "shubham"};
+
+function sayHi() {
+   console.log(this.name);
+}
+let f = sayHi.bind(user);
+
+f();
+*/
+
+------------------------------------------------------------------
+-------------------------this scope in arrow function-------------
+let group = {
+  title: "Our Group",
+  students: ["John", "Pete", "Alice"],
+  show: ()=>{
+    console.log("hello");
+    console.log(this);
+    console.log(this.title);
+
+  }
+,
+  showList() {
+    let title="group";
+    this.students.forEach(
+      student => console.log(this.title + ': ' + student)
+    );
+  }
+};
+
+var title="my group"
+group.showList();
+group.show()
+---------------------------------------------------------------------------------------property flag--------------------------------
+Non-writable
+
+"use strict";
+
+let user = {};
+
+Object.defineProperty(user, "name", {
+  value: "shubham",
+  writable:false//,
+  //configurable:true
+})
+
+user.name = "shugh";
+console.log(user.name);
+let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
+
+console.log(descriptor);
+-----------------------------------------------------------------
+Non-enumerable
+
+let user = {
+  name:"shubham",
+  age:20
+}
+
+Object.defineProperty(user,'age',{
+  enumerable:false
+})
+
+console.log(Object.keys(user));
+
+-----------------------------------------------------------------
+Non-configurable
+
+"use strict";
+
+let user = {
+  name:"shubham",
+  age:20
+}
+
+Object.defineProperty(user,'age',{
+  //enumerable:false,
+  configurable:false
+})
+
+//delete user.age
+console.log(Object.getOwnPropertyDescriptor(user,'age'));
+
+Object.defineProperty(user,'age',{
+  enumerable:true,
+  configurable:true
+})
+-----------------------------------------------------------------
+                       getter and setter
+"use strict";
+
+let user = {
+  name:"shubham",
+  age:20
+};
+
+Object.defineProperty( user , 'detail' ,{
+  get(){return ` name => ${this.name}  age => ${this.age} `;},
+  set(value){[this.name , this.age] = value.split(" ")},
+  //configurable:true
+})
+
+
+
+
+/*
+let user = {
+  name:"shubham",
+  age:20,
+  get detail(){
+    return ` name => ${this.name}  age => ${this.age} `;
+  }
+};
+
+console.log(user.detail);
+
+
+let user = {
+  name:"shubham",
+  age:20,
+  get detail(){
+    return ` name => ${this.name}  age => ${this.age} `;
+  },
+  set detail(value){
+    [this.name , this.age] = value.split(" ")
+  }
+};
+*/
+console.log(user.detail);
+
+user.detail = "muley 21"
+
+console.log(user.detail);
+console.log(user.name);
+console.log(user.age);
+
+delete user.detail
+
+----------------------------------------------------------------------
+
+"use strict";
+let user ={
+  get name(){
+    return this._name;
+  },
+  set name(value){
+    if(value.length < 4){
+      console.log("name is too short");
+      return ;
+    }
+    this._name = value;
+  }
+}
+
+ user.name = "shubham"
+
+console.log(user._name);
