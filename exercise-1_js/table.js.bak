@@ -36,12 +36,12 @@ function del(e)
 
 
   for( let i = parseInt(index) + 1 ; i < count  ; i++  ){
-    
+    console.log(document.getElementById(i).id);
 	console.log("i = "+i);
 
      document.getElementById(i).id = i-1;
 
-	 
+	 console.log(document.getElementById(i).id);
   }
 
 
