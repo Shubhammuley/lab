@@ -8,20 +8,22 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Dynamic Table</title>
+    <title>Static Table</title>
   </head>
   <body>
 
+    <div class="container text-center " >
+      <input type="text" id="firstname" placeholder="FirstName" disabled>
+      <input type="text" id="lastname" placeholder="LastName" disabled>
+
+      <button class="btn btn-primary" id="add" onclick=" getName()" disabled>Add</button>
+    </div>
 
       <div class="container text-center " >
-        <input type="text" id="firstname" placeholder="FirstName">
-        <input type="text" id="lastname" placeholder="LastName">
-
-        <button class="btn btn-primary" id="add" onclick=" getName()">Add</button>
-          <button class="btn btn-primary" id="edit1" onclick=" edit_append()" disabled>edit</button>
+        <button class="btn btn-primary" id="show" onclick="print()">Show Table</button>
       </div>
 
-     <div class="container text-center " >
+     <div class="container text-center ">
        <table class="table table-bordered" id="mytable">
          <tbody id="table">
 
@@ -30,7 +32,7 @@
 
      </div>
 
-      <script src="table.js"></script>
+      <script src="task3.js"></script>
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

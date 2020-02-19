@@ -36,13 +36,36 @@ function del(e)
 
 
   for( let i = parseInt(index) + 1 ; i < count  ; i++  ){
-    
-	console.log("i = "+i);
 
-     document.getElementById(i).id = i-1;
+       document.getElementById(i).id = i-1;
+       document.getElementById(i).id = i-1;
 
-	 
-  }
+   }
+    count--;
+
+
+
+}
+function edit_append(){
+  let firstName = document.getElementById("firstname").value;
+  let lastName =  document.getElementById("lastname").value;
+
+
+
+  firstname[index] = firstName;
+  lastname [index] = lastName;
+  console.log("index= "+index);
+
+  document.getElementById("firstname").value="";
+  document.getElementById("lastname").value="";
+
+  table = document.getElementById("mytable")
+
+  table.rows[index].cells[0].innerHTML = firstName;
+  table.rows[index].cells[1].innerHTML = lastName;
+
+  document.getElementById("add").disabled = false;
+   document.getElementById("edit1").disabled =true;
 
 
 
@@ -60,6 +83,10 @@ function edit(e)
    }
    document.getElementById("firstname").value=firstname[index];
    document.getElementById("lastname").value=lastname[index];
+
+    document.getElementById("add").disabled = true;
+     document.getElementById("edit1").disabled =false;
+
 }
 function print()
 {
@@ -86,7 +113,7 @@ function print()
      button1.appendChild(data)
      button1.addEventListener("click",edit)
      //button1.onclick=alert1();
-     //button1.id=count-1;
+     button1.id=count-1;
      button1.value = count-1;
      button1.className+="btn btn-primary" ;
 
