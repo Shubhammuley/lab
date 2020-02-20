@@ -329,3 +329,235 @@ function email (mail){
 }
 
 console.log(email("shubham.muley@rapidops.com"));
+------------------------------------------------------------------------
+
+12. Write​ ​ a ​ ​ JavaScript​ ​ function​ ​ to​ ​ insert​ ​ a ​ ​ string​ ​ within​ ​ a ​ ​ string​ ​ at​ ​ a ​ ​ particular​ ​ position (default​ ​is​ ​ 1).
+-------------------------->
+function insert(string , add , index ){
+  if(index == null || index == undefined ){
+
+    index = 0;
+  }
+  if( add == null || add == undefined ) {
+    add='';
+  }
+  return string.slice(0,index) + add + string.slice(index);
+}
+
+console.log(insert("How you doing ", "hey",10 ));
+
+------------------------------------------------------------------------
+
+13. Write​ a ​ ​ JavaScript​ ​ function​ ​ to​ ​ chop​ ​ a ​ ​ string​ ​ into​ ​ chunks​ ​ of​ ​ a ​ ​ given​ ​ length.
+console.log(string_chop('RapidOpsSolution’',2));
+["Ra",​ ​ "pi",​ ​ "dO",​ ​ "ps",​ ​ "So",​ ​ ”lu”,​ ​ “ti”,​ ​ “on”]
+----------------------->
+
+
+function chop( str , size ){
+
+  let len=str.length/size;
+  let a=[];
+  let init=0;
+  let end=size;
+
+  for(let i =0 ;i<Math.round(len);i++)
+  {
+    a[i] = str.slice(init,end);
+    init = end;
+    end+=size;
+  }
+
+  return a;
+}
+
+console.log(chop("RapidOpsSolutionand",2));
+
+------------------------------------------------------------------------
+
+14. Write​ ​ a ​ ​ JavaScript​ ​ function​ ​ to​ ​ remove​ ​ HTML/XML​ ​ tags​ ​ from​ ​ string.
+'<p><strong><em>Javascript​ ​ Exercises</em></strong></p>
+“Javascript​ ​ Exercises”
+
+----------------------------------->
+
+str ='<p><strong><em>Javascript​ ​ Exercises</em></strong></p>';
+str1= '<body><script src=sam.js>sdfgghfg  </script></body>'
+
+function remove(str){
+  return str.replace(/<[^>]*>/g,"");;
+}
+
+console.log(remove(str));
+console.log(remove(str1));
+
+------------------------------------------------------------------------
+
+15. Write​ ​ a ​ ​ pattern​ ​ that​ ​ matches​ ​ e-mail​ ​ addresses.
+
+---------------------->
+
+function email_validation(mail){
+
+  let index_a = mail.indexOf("@");
+  let index_dot = mail.lastIndexOf(".");
+  console.log(index_a);
+
+ console.log(index_dot);
+ console.log(mail.length);
+
+  if(index_a < 1 || index_dot < index_a+2 || index_dot >= mail.length-2){
+    return "invalid mail";
+  }
+  else {
+    return "valid mail";
+  }
+}
+
+console.log(email_validation("shubham@gmail.in"));
+
+------------------------------------------------------------------------
+16. Write​ ​ a ​ ​ JavaScript​ ​ function​ ​ to​ ​ print​ ​ an​ ​ integer​ ​ with​ ​ commas​ ​ as​ ​ thousands​ ​ separators.
+
+----------------------->
+
+function commas(int){
+
+  int=int.toString();
+  let substr="";
+  if(int.includes(".")) {
+    substr=int.slice(int.indexOf("."));
+    int=int.slice(0,int.indexOf("."));
+
+  }
+  if(int.length < 4){
+    return int;
+  }
+  else {
+  return commas(int.slice(0,int.length-3)) + ","+int.slice(int.length-3)+substr ;
+  }
+}
+
+console.log(commas(1234454.54545));
+
+------------------------------------------------------------------------
+17. Write​ ​ a ​ ​ JavaScript​ ​ function​ ​ that​ ​ creates​ ​ a ​ ​ table,​ ​ accept​ ​ row,​ ​ column​ ​ numbers​ ​ from​ ​ the user,​ ​ and​ ​input​ ​ row-column​ ​ number​ ​ as​ ​ content​ ​ (e.g.​ ​ Row-0​ ​ Column-0)​ ​ of​ ​ a ​ ​ cell.
+---------------------->
+
+function createTable(row , col ){
+
+  for(let r=0 ;r<row; r++)
+  {
+    let x =document.getElementById('table').insertRow(r)
+
+    for(let c=0 ; c<col ;c++)
+    {
+      let y=x.insertCell(c);
+      y.innerHTML= r + " - " +c;
+    }
+  }
+
+}
+createTable(5,5)
+
+------------------------------------------------------------------------
+
+18. Write​ ​ a ​ ​ JavaScript​ ​ function​ ​ to​ ​ print​ ​ array​ ​ of​ ​ object​ ​ in​ ​ ascending​ ​ order​ ​ on​ ​ age, descending​ ​ order​ ​ on​​ name.​ ​ (Make​ ​ array​ ​ of​ ​ object​ ​ with​ ​ three​ ​ fields​ ​ are​ ​ 1.​ ​ Id,​ ​ 2.​ ​ Name,​ ​ 3. age)​ ​ NOTE:​ ​ Array​ ​ have​ ​ minimum​ ​ 10​ ​ objects.
+----------------------------------------->
+
+array = [
+         {id:101 ,name:"Ab" , age:20},
+         {id:103 ,name:"aab", age:28},
+         {id:106 ,name:"zA", age:18},
+         {id:158 ,name:"bA",age:19},
+         {id:10 ,name:"XA", age:23},
+         {id:2 ,name:"BA", age:35},
+         {id:82 ,name:"fA", age:25},
+         {id:802 ,name:"gsA", age:52},
+         {id:1 ,name:"ksA" , age:48},
+         {id:100 ,name:"KsA" ,age:36},
+
+
+    ];
+
+
+function compare_id(x,y)  {
+    if (x.age < y.age)
+      return -1;
+    if (x.age > y.age)
+      return 1;
+    return 0;
+ }
+
+ function compare_name(x,y)  {
+     if (x.name > y.name)
+       return -1;
+     if (x.name < y.name)
+       return 1;
+     return 0;
+  }
+console.log(array.sort(compare_id));
+console.log(array.sort(compare_name));
+
+------------------------------------------------------------------------
+
+19. Write​ ​ a ​ ​ JavaScript​ ​ function​ ​ to​ ​ delete​ ​ particular​ ​ object​ ​ from​ ​ array​ ​ and​ ​ add​ ​ new​ ​ object​ ​ at particular​ ​position.
+
+------------------------------------>
+function remove(array , n){
+
+  let index = array.indexOf(n);
+  console.log(index);
+
+  if(index > -1){
+    array.splice(index, 1)
+  }
+  return array;
+}
+
+
+array=[1,2,3,4,5,6,7]
+
+console.log(remove(array,3));
+
+
+------------------------------------------------------------------------
+function display(array){
+  let reading = [];
+   travelling=[],music=[],drawing=[];
+
+  for ( let i=0 ; i < array.length ; i++){
+    if(array[i].hobbies.indexOf("reading") > -1)  {
+      reading.push(array[i].name)
+
+    }
+    if(array[i].hobbies.indexOf("travelling") > -1)  {
+      travelling.push(array[i].name)
+
+    }
+    if(array[i].hobbies.indexOf("drawing") > -1)  {
+      drawing.push(array[i].name)
+    }
+    if(array[i].hobbies.indexOf("music") > -1)  {
+      music.push(array[i].name)
+    }
+
+
+  }
+
+
+  console.log("Reading : " + reading);
+  console.log("travelling : "+ travelling);
+  console.log("drawing  : "+  drawing);
+  console.log("music : "+ music);
+}
+
+let array = [
+    { id:1, name:"abc" , hobbies:["reading", "travelling", "music" ]},
+    { id:2, name:"xyz" , hobbies:[ "reading", "drawing", "music" ]},
+    { id:2, name:"dd" , hobbies:[ "drawing", "music" ]},
+    { id:2, name:"ee" , hobbies:[ "reading",]},
+    { id:2, name:"ff" , hobbies:[ "travelling", "reading", "music" ]}
+  ];
+
+  display(array)

@@ -28,8 +28,11 @@ function del(e)
       console.log(typeof index);
   }
   document.getElementById("table").deleteRow(index);
-  delete firstname[index];
-  delete lastname[index];
+//  delete firstname[index];
+//  delete lastname[index];
+
+firstname.splice(index, 1);
+lastname.splice(index, 1);
 
 
 
@@ -39,8 +42,8 @@ function del(e)
 
        document.getElementById(i).id = i-1;
        document.getElementById(i).id = i-1;
-       firstname[i-1]=firstname[i]
-       lastname[i-1]=lastname[i]
+       //firstname[i-1]=firstname[i]
+       //lastname[i-1]=lastname[i]
 
    }
     count--;

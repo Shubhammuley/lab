@@ -42,17 +42,18 @@ function del(e)
   }
   document.getElementById("table").deleteRow(index);
 
-  delete first_name[index];
-  delete last_name[index];
-
+//  delete first_name[index];
+//  delete last_name[index];
+  first_name.splice(index, 1);
+  last_name.splice(index, 1);
   for( let i = parseInt(index) + 1 ; i < count-1 ; i++  ){
 
        document.getElementById(i).id = i-1;
        document.getElementById(i).id = i-1;
-       first_name[i-1]=first_name[i]
+      /* first_name[i-1]=first_name[i]
        last_name[i-1]=last_name[i]
        console.log(index +" = "+first_name[index]);
-
+*/
    }
    index--;
     count--;
