@@ -39,6 +39,8 @@ function del(e)
 
        document.getElementById(i).id = i-1;
        document.getElementById(i).id = i-1;
+       firstname[i-1]=firstname[i]
+       lastname[i-1]=lastname[i]
 
    }
     count--;
@@ -78,8 +80,8 @@ function edit(e)
    e = e || window.event;
    e = e.target || e.srcElement;
    if (e.nodeName === 'BUTTON') {
-       index=e.value;
-       console.log(e.value);
+       index=e.id;
+       console.log(e.id);
    }
    document.getElementById("firstname").value=firstname[index];
    document.getElementById("lastname").value=lastname[index];

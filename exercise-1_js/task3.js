@@ -20,16 +20,7 @@ function getName()
    document.getElementById("firstname").disabled = true;
    document.getElementById("lastname").disabled = true;
    document.getElementById("add").disabled = true;
-/*
-   var x = document.getElementById('myTable').rows[index].cells;
 
-  x[parseInt(0,10)].innerHTML=firstName;
-
-  var y = document.getElementById('myTable').rows[index].cells;
-
- y[parseInt(1,10)].innerHTML=lastName;
-
-*/
  table = document.getElementById("mytable")
 
  table.rows[index].cells[0].innerHTML = firstName;
@@ -47,9 +38,10 @@ function del(e)
   e = e.target || e.srcElement;
   if (e.nodeName === 'BUTTON') {
       index=e.id;
-      console.log(typeof index);
+      console.log(index);
   }
   document.getElementById("table").deleteRow(index);
+
   delete first_name[index];
   delete last_name[index];
 
@@ -57,8 +49,12 @@ function del(e)
 
        document.getElementById(i).id = i-1;
        document.getElementById(i).id = i-1;
+       first_name[i-1]=first_name[i]
+       last_name[i-1]=last_name[i]
+       console.log(index +" = "+first_name[index]);
 
    }
+   index--;
     count--;
 
 
@@ -71,13 +67,14 @@ function edit(e)
    e = e || window.event;
    e = e.target || e.srcElement;
    if (e.nodeName === 'BUTTON') {
-       index=e.value;
-       console.log(e.value);
+       index=e.id;
+       console.log(e.id);
    }
 
       document.getElementById("firstname").disabled = false;
       document.getElementById("lastname").disabled = false;
       document.getElementById("add").disabled = false;
+
       document.getElementById("firstname").value=first_name[index];
       document.getElementById("lastname").value=last_name[index];
 
