@@ -17,9 +17,9 @@ function getName()
    document.getElementById("firstname").value="";
    document.getElementById("lastname").value="";
 
-   document.getElementById("firstname").disabled = true;
-   document.getElementById("lastname").disabled = true;
-   document.getElementById("add").disabled = true;
+   document.getElementById("firstname").hidden = true;
+   document.getElementById("lastname").hidden = true;
+   document.getElementById("add").hidden = true;
 
  table = document.getElementById("mytable")
 
@@ -72,9 +72,9 @@ function edit(e)
        console.log(e.id);
    }
 
-      document.getElementById("firstname").disabled = false;
-      document.getElementById("lastname").disabled = false;
-      document.getElementById("add").disabled = false;
+      document.getElementById("firstname").hidden = false;
+      document.getElementById("lastname").hidden = false;
+      document.getElementById("add").hidden = false;
 
       document.getElementById("firstname").value=first_name[index];
       document.getElementById("lastname").value=last_name[index];
@@ -125,7 +125,7 @@ function print()
       button2.className+="btn btn-primary" ;
       document.getElementById("table").appendChild(tag);
 
-      document.getElementById("show").disabled = true;
+      document.getElementById("show").hidden = true;
       count++;
 
     }

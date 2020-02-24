@@ -69,8 +69,8 @@ function edit_append(){
   table.rows[index].cells[0].innerHTML = firstName;
   table.rows[index].cells[1].innerHTML = lastName;
 
-  document.getElementById("add").disabled = false;
-   document.getElementById("edit1").disabled =true;
+  document.getElementById("add").hidden = false;
+   document.getElementById("edit1").hidden =true;
 
 
 
@@ -89,8 +89,8 @@ function edit(e)
    document.getElementById("firstname").value=firstname[index];
    document.getElementById("lastname").value=lastname[index];
 
-    document.getElementById("add").disabled = true;
-     document.getElementById("edit1").disabled =false;
+    document.getElementById("add").hidden = true;
+     document.getElementById("edit1").hidden =false;
 
 }
 function print()
