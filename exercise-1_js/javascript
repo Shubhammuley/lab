@@ -1102,3 +1102,492 @@ let user ={
  user.name = "shubham"
 
 console.log(user._name);
+
+-----------------------------------------------------------------------
+                            class
+
+
+                            class date{
+                              constructor(date1){
+                                this.date1=date1;
+                              }
+
+                              print(){
+                                console.log(this.date1);
+                              }
+                            }
+
+                            let da =new date("12/10/2012")
+
+                            da.print();
+
+
+                            function a(){}
+                            console.log(typeof a);
+
+                            console.log(typeof date);
+                            console.log(date.prototype.constructor);
+                            console.log(date.prototype.print);
+
+                            console.log(date);
+
+
+-------------------------------------------------------------------
+
+let da = class date{
+  print(){
+    console.log(date);
+  }
+}
+
+new da().print();
+
+date.print()
+----------------------------------------------------------------
+  dynamic class gen
+
+
+function make(str){
+  return class{
+  print(){
+    console.log(str);
+  }
+  };
+}
+
+let user = make("sdasd");
+console.log(make("sdasd"));
+//new user().print()
+
+---------------------------------------------------------------
+
+class Animal {
+
+  constructor(name) {
+    this.speed = 0;
+    this.name = name;
+    console.log(" animal constructor");
+  }
+  run(speed) {
+    this.speed += speed;
+    console.log(`${this.name} runs with speed ${this.speed}.`);
+  }
+  stop() {
+    this.speed = 0;
+    console.log(`${this.name} stands still.`);
+  }
+}
+
+class Rabbit extends Animal{
+  constructor(name){
+    console.log( "rabbit constructor");
+    super(name);
+  }
+  hide(){
+    console.log(`${this.name} hides`);
+  }
+  stop() {
+    super.stop(); // call parent stop
+    this.hide(); // and then hide
+  }
+}
+
+let rabbit = new Rabbit("rabbit")
+
+
+rabbit.run(5);
+rabbit.hide();
+
+rabbit.run(2);
+rabbit.stop()
+
+/*let animal = new Animal("My animal");
+
+animal.run(5);
+animal.run(1);
+animal.run(4);
+
+animal.stop();
+
+animal.run(4);
+*/
+
+-------------------------------------------------------------------
+class NameError extends Error{
+  constructor(message){
+    super(message);
+    this.name="NameError "
+  }
+}
+
+
+
+let name="abc";
+
+try {
+  if( name == "abc")
+  {
+    throw new NameError("name Error");
+
+
+  }
+  console.log(name);
+
+
+} catch (e) {
+
+  console.log(e.name);
+  console.log(e.message);
+  console.log(e.stack);
+
+
+}
+-----------------------------------------------------------------
+
+document.body.style.color ="red";
+
+/*
+setTimeout(()=>document.body.style.color ="blue",3000 )
+console.log(document.body);
+setTimeout(()=>console.log(document.body),4000)
+*/
+console.log( document.body.childNodes);
+console.log(document.body.parentNode);
+console.log(document.documentElement);
+
+
+
+//document.body.childNodes[0].style.color="blue";
+document.body.childNodes[1].style.color="blue";
+document.body.childNodes[3].style.color="green";
+
+
+/*
+let btn = document.querySelectorAll("button")
+
+btn[0].innerText="red"
+btn[1].style.backgroundColor="red"
+
+
+
+/*
+let table = document.getElementById("table");
+let tr = document.createElement("TR");
+let td =document.createElement("TD");
+
+  table.document.appendChild(tr);
+  td.document.appendChild(td);
+  td.document.write("abcd")
+
+
+*/
+let table = document.getElementById("table");
+
+table.style.display="none"
+let btn= document.getElementsByTagName('button')
+//btn.addEventListener=
+btn[1].style.backgroundColor="red"
+btn[1].attribute = "123"
+btn[1].innerHTML = "123"
+
+
+console.log(btn.length);
+
+
+function date()
+{
+document.getElementById("p").innerHTML=Date();
+}
+
+setInterval(date,1000)
+-------------------------------------------------------------------
+let p = document.getElementById("p");
+let btn= document.getElementsByTagName('button');
+
+p.addEventListener("mouseover",()=>p.innerHTML = "change");
+p.addEventListener("mouseout",()=>p.innerHTML = "changeAgaun");
+btn[1].addEventListener("mousedown",()=>p.style.color="red");
+btn[1].addEventListener("mouseup",()=>p.style.color="blue");
+btn[0].addEventListener("mouseover",()=>p.style.color="green");
+
+btn[0].removeEventListener("m",()=>p.style.color="green");
+
+
+
+
+
+function mover(){
+  p.innerHTML = "change";
+}
+function mout(){
+  p.innerHTML = "changeAgaun"
+}
+_------------------------------------------------------------------
+console.log(window.innerHeight);
+console.log(window.innerWidth);
+
+//window.open();
+
+console.log(window.screen.width);
+console.log(window.screen.availWidth);
+console.log(window.screen.heigth);
+console.log(window.screen.availHeigth);
+console.log(window.screen.colorDepth);
+console.log(window.screen.pixelDepth);
+
+console.log(window.location.href);
+console.log(window.location.hostname);
+console.log(window.location.protocol);
+console.log(window.location.pathname);
+
+let btn = document.getElementsByTagName("button")
+
+
+function clk(event){
+
+  if(event.altKey && event.shiftKey){
+    console.log("alt + shift");
+  }
+  if(event.ctrlKey && event.shiftKey){
+    console.log("c + shift");
+  }
+}
+
+btn[3].addEventListener("click",clk)
+window.addEventListener('scroll', function() {
+   console.log(window.pageYOffset + 'px');
+});
+-------------------------------------------------------------------
+
+let form = document.forms.myform;
+
+let one = form.elements.one;
+
+//e.selectedIndex=0;
+//e.options[1].selected=true
+//e..value='Apple'
+/*
+one.onblur = function(){
+  if(!this.value.includes('@')){
+    this.classList.add("error");
+    one.focus();
+  }
+  else {
+    this.classList.remove("error")
+  }
+};
+*/
+
+
+one.oninput = function(){
+  document.getElementById("print").innerHTML= one.value
+}
+
+-------------------------------------------------------------------
+
+
+window.onload = function()
+{
+  img=document.getElementById('img')
+  console.log("page loaded");
+
+  console.log(`image size ${img.offsetWidth} * ${img.offsetHeight}` );
+}
+
+
+
+let script = document.createElement("script")
+script.scr= "https://abc.com/sds";
+
+document.head.append(script);
+
+script.onerror = function(){
+  console.log("error while loading" );
+};
+
+
+
+window.onbeforeunload = function() {
+  return "do you want to leave now ?";
+};
+-----------------------------------------------------------------
+
+let observer = new MutationObserver(mutationRecords => {
+  console.log(mutationRecords);});
+
+let div = document.getElementById('elem')
+
+observer.observe(elem , { childList:true,
+                          subtree:true,
+                          characterDataOldValue:true})
+
+-------------------------------------------------------------------
+
+//window.open('https://javascript.info/')
+//window.open('/home')
+/*
+let newWin = window.open("about:blank", "hello", "width=200,height=200");
+*/
+//newWin.document.write("Hello, world!");
+let newWindow = open('/home/shubham', 'example', 'width=300,height=300')
+newWindow.focus();
+
+//alert(newWindow.location.href); // (*) about:blank, loading hasn't started yet
+
+newWindow.onload = function() {
+  let html = `<div style="font-size:30px">Welcome!</div>`;
+  newWindow.document.body.insertAdjacentHTML('afterbegin', html);
+};
+
+let newWin = window.open("about:blank", "hello", "width=200,height=200");
+/*
+newWin.document.write(
+  "<script>window.opener.document.body.innerHTML = 'Test'<\/script>"
+)
+*/
+------------------------------------------------------------------
+
+let newWindow = open('/', 'example', 'width=300,height=300');
+
+setTimeout(()=> newWindow.close() , 5000)
+
+-------------------------------------------------------------------
+                      form property
+
+
+        let form = document.forms.myform;
+        let ageElems = form.elements.age;
+        console.log(form);
+        console.log(form.elements.one);
+        console.log(ageElems[0].value);
+        form.email.value="dfsf"
+        console.log(form.email.value);
+        console.log(form.elements.select.options[0]);
+
+
+        form.elements.select.options[2].selected=true;
+
+        //option=form.elements.select.options;
+
+        let option = new Option("new",10,true,true)
+        //console.log(email.value);
+        function submit(){
+          console.log(form.elements.email.value);
+          console.log(form.elements.name.value);
+          console.log(form.elements.select.value);
+
+          //console.log(form.elements.age.checked);
+
+          console.log(form.elements.age.value);
+
+        }
+
+
+-------------------------------------------------------------------
+                        Event change
+
+
+          function change()
+          {
+           console.log("change in email");
+          }
+
+          let form =document.forms.myform.elements.email;
+
+
+          form.oncut = form.oncopy = form.onpaste =  function(event){
+            console.log(event.type + ' - ' + event.clipboardData.getData('text/plain'));
+            return false;
+
+          }
+
+-------------------------------------------------------------------
+                        LocalStorage
+
+
+function submit1(){
+  let form = document.forms.myform;
+
+  localStorage.email=form.elements.email.value;
+  localStorage.email="Fdgd"
+}
+function show() {
+   console.log(localStorage.email);
+}
+
+localStorage.test = 2;
+localStorage.test1 = 3;
+console.log(localStorage.test);
+
+console.log(localStorage.key(2));
+//localStorage.removeItem("test")
+console.log(localStorage.test);
+console.log(localStorage.length);
+
+for(let i=0; i<localStorage.length; i++) {
+  let key = localStorage.key(i);
+  console.log(`${key}: ${localStorage.getItem(key)}`);
+}
+
+-------------------------------------------------------------------
+               object in localStorage
+
+let user ={ name:"shubham",password:"asdsd"
+
+}
+
+localStorage.user=JSON.stringify(user);
+
+let u= JSON.parse(localStorage.user)
+console.log(u.name);
+console.log(u.password);
+
+
+
+delete localStorage.test1
+delete localStorage.test
+delete localStorage.email
+--------------------------------------------------------------------
+
+let openRequest = indexedDB.open("store", 1);
+
+openRequest.onupgradeneeded = function() {
+  // triggers if the client had no database
+  // ...perform initialization...
+};
+
+openRequest.onerror = function() {
+  console.error("Error", openRequest.error);
+};
+
+openRequest.onsuccess = function() {
+  let db = openRequest.result;
+  // continue to work with database using db object
+};
+
+/*
+function submit1(){
+  let form = document.forms.myform;
+  localStorage.email=form.elements.email.value;
+  localStorage.email="Fdgd"
+}
+function show() {
+   console.log(localStorage.email);
+}
+
+localStorage.test = 2;
+localStorage.test1 = 3;
+console.log(localStorage.test);
+
+console.log(localStorage.key(2));
+//localStorage.removeItem("test")
+console.log(localStorage.test);
+console.log(localStorage.length);
+
+for(let i=0; i<localStorage.length; i++) {
+  let key = localStorage.key(i);
+  console.log(`${key}: ${localStorage.getItem(key)}`);
+}
+
+
+*/

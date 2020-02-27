@@ -1,0 +1,44 @@
+#text {
+  display: block;
+  height: 100px;
+  width: 456px;
+}
+
+#table th {
+  text-align: center;
+  font-weight: bold;
+}
+
+#table td {
+  width: 150px;
+  height: 150px;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: center;
+  padding-top: 5px;
+  padding-bottom: 12px;
+  cursor: pointer;
+}
+
+#table .d1 {
+  background: #999;
+}
+
+#table .d2 {
+    background: #999;
+
+}
+
+#table .d3 {
+    background: #999;
+
+}
+#table .d4 {
+    background: #999;
+
+  }
+
+
+#table .highlight {
+  background: red;
+}

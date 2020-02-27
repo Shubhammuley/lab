@@ -522,6 +522,7 @@ console.log(remove(array,3));
 
 
 ------------------------------------------------------------------------
+20.)
 function display(array){
   let reading = [];
    travelling=[],music=[],drawing=[];
