@@ -43,6 +43,8 @@ if(session=="true")
 for( let i =0 ; i<len ; i++ ){
 
   let div=document.createElement("div");
+  let divs=document.createElement("div");
+
   let div1=document.createElement("div");
   let div2=document.createElement("div");
   let div3=document.createElement("div");
@@ -55,10 +57,17 @@ for( let i =0 ; i<len ; i++ ){
   img.src= course_data[i].coursefile;  
   
   div.className="column"
+  divs.className="text-center"
+  div1.className="text-center"
+  div3.className="text-center"
+
+
+
   img.className= "img"
 
   div1.appendChild(img);
-  div2.appendChild(span)
+  div2.appendChild(divs)
+  divs.appendChild(span)
   div3.appendChild(btn);
 
   div.append(div1,div2,div3)
@@ -185,7 +194,7 @@ function add(e){
       e.className= "btn btn-danger";
       console.log(e.className);
       e.onclick=removecourse
-      e.addEventListener('click',removecourse,false)    
+     // e.addEventListener('click',removecourse)    
       console.log(e.onclick);
         
       
@@ -254,7 +263,8 @@ function removecourse(e){
        console.log(index);
        e.innerHTML="assign course"
        e.className= "btn btn-primary"  ;
-       e.addEventListener('click',add,false)      
+       e.onclick=add;
+       //e.addEventListener('click',add)      
        
    }
  

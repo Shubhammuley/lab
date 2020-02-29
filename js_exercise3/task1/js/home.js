@@ -44,6 +44,8 @@ for( let i = 0 ; i<len ; i++){
     let div1=document.createElement("div");
     let div2=document.createElement("div");
     let div3=document.createElement("div");
+    let divs=document.createElement("div");
+
 
     let anchor=document.createElement("a");
     anchor.href = course_data[i].courselink
@@ -56,11 +58,16 @@ for( let i = 0 ; i<len ; i++){
     img.src= course_data[i].coursefile;  
     
     div.className="column"
+    div1.className="text-center"
+    divs.className="text-center"
+
+
     img.className= "img"
     div2.className="style "
 
     div1.appendChild(img);
-    div2.appendChild(anchor);
+    div2.appendChild(divs);
+    divs.appendChild(anchor);
     anchor.appendChild(span)
     div3.appendChild(div2)
     
