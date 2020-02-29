@@ -53,6 +53,8 @@ for( let i =0 ; i<len ; i++ ){
   let img=document.createElement("img");
   let span=document.createElement("span")
   let btn=document.createElement("button");
+  let btn2=document.createElement("button");
+
 
   img.src= course_data[i].coursefile;  
   
@@ -69,6 +71,8 @@ for( let i =0 ; i<len ; i++ ){
   div2.appendChild(divs)
   divs.appendChild(span)
   div3.appendChild(btn);
+  div3.appendChild(btn2);
+
 
   div.append(div1,div2,div3)
 
@@ -84,8 +88,13 @@ for( let i =0 ; i<len ; i++ ){
   btn.dataset.toggle = "modal";
   btn.dataset.target = "#exampleModalCenter";
 
+  btn2.className+="btn btn-danger footer set" ;
+  btn2.innerHTML = "remove course"
+  btn2.id= i;
 
   btn.addEventListener('click',show)
+  btn2.addEventListener('click',deleteCourse)
+
 
 
   parentdiv.appendChild(div);
@@ -320,6 +329,48 @@ function logout(){
   
   alert("logged out sucessfully")
 }
+//----------------------------------deletecourse--------------------------
+
+function deleteCourse(e){
+
+  e = e || window.event;
+   e = e.target || e.srcElement;
+   if (e.nodeName === 'BUTTON') {
+       index=e.id;
+       console.log(index);
+                
+   }
+   let c= JSON.parse(localStorage.course);
+   let a,al;
+   console.log(c[index])
+   
+   
+
+    if(localStorage.getItem("assigned_course") === null){
+      a = null ;
+    
+    }
+    else{
+      a=JSON.parse(localStorage.assigned_course);
+      al=a.length;
+    
+    }
+    for(let i=0; i<al;i++){
+      if(a[i].coursename == c[index].coursename){
+        a.splice(i,1);
+
+        localStorage.assigned_course=JSON.stringify(a);
+      }
+
+    }
+    c.splice(index,1);
+   localStorage.course=JSON.stringify(c);
+    location.reload();
+
+}
+
+
+
 
 //----------------------------------addCourse---------------------------
 

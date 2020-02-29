@@ -15,8 +15,16 @@ function signup(){
            break;
        }
    }
+   if(localStorage.getItem(val) === null){
+    userData={};
 
-   userData = JSON.parse(localStorage.getItem(val));
+}
+  else{
+    userData = JSON.parse(localStorage.getItem(val));
+
+  }
+
+   
 
 
   if(password === password1 ){
