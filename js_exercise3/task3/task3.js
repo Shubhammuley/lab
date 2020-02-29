@@ -39,27 +39,33 @@ document.onkeydown = function(e) {
     }
 };
 
-document.addEventListener("keyup",next)
-document.addEventListener("keyright",next)
-document.addEventListener("keydown",previous)
-document.addEventListener("keyleft",previous)
 
 
 let colors = [ 'red', 'green', 'yellow', 'blue' ,'AliceBlue', 'Aqua' , "Aquamarine ","BlueViolet" ,"IndianRed","DarkSalmon","Cyan","DarkCyan" ];
-let count=0;
+let count=-1;
 function next(){
-   
-    d4.style.backgroundColor=colors[count];    
-       
+    if(count<-1 || count==colors.length-1){
+        count= -1;
+    }  
     count++;
+    d4.style.backgroundColor=colors[count];    
+     
+    
 
-    console.log(count);
+
     
 
 }
 
 function previous(){
     
-    d4.style.backgroundColor=colors[count-1];
+    if(count == 0){
+        count=colors.length;
+    }
+     
     count--;
+    d4.style.backgroundColor=colors[count];
+     
+    
+
 }
