@@ -1,5 +1,5 @@
 function change(){
-    let d3=document.getElementById("d1")
+    let d3=document.getElementById("d3")
     
     let colors = [ 'red', 'green', 'yellow', 'blue' ,'AliceBlue', 'Aqua' , "Aquamarine ","BlueViolet" ,"IndianRed","DarkSalmon","Cyan","DarkCyan" ];
     let color   = Math.floor((Math.random() * colors.length - 1) + 1);  
@@ -21,19 +21,24 @@ function one(){
 
 let d4=document.getElementById("d4");
 
+let id;
 
 document.onkeydown = function(e) {
     switch (e.keyCode) {
         case 37:
+            clearTimeout(id);
             previous()
             break;
         case 38:
+            clearTimeout(id);
             next();
             break;
         case 39:
+            clearTimeout(id);
             next();
             break;
         case 40:
+            clearTimeout(id);
             previous();
             break;
     }
@@ -43,6 +48,8 @@ document.onkeydown = function(e) {
 
 let colors = [ 'red', 'green', 'yellow', 'blue' ,'AliceBlue', 'Aqua' , "Aquamarine ","BlueViolet" ,"IndianRed","DarkSalmon","Cyan","DarkCyan" ];
 let count=-1;
+
+
 function next(){
     if(count<-1 || count==colors.length-1){
         count= -1;
@@ -50,10 +57,8 @@ function next(){
     count++;
     d4.style.backgroundColor=colors[count];    
      
-    
-
-
-    
+    id=setTimeout(next,5000);
+        
 
 }
 
@@ -66,6 +71,6 @@ function previous(){
     count--;
     d4.style.backgroundColor=colors[count];
      
-    
+    id=setTimeout(previous,5000);
 
 }
